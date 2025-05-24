@@ -3,6 +3,7 @@ import { env } from "../../env";
 import { AlreadyExistsException } from "../../exceptions/already-exists";
 import { UserRepository } from "../../repositories/user-repository";
 import { hash } from "bcrypt";
+import { hashPassword } from "../../utils/hashPassword";
 
 export class UserCreateUseCase {
   constructor(private userRepository: UserRepository) {}
@@ -14,10 +15,10 @@ export class UserCreateUseCase {
       throw new AlreadyExistsException("User already exists");
     }
 
-    const { email, password, name, confirmPassword } = data
+    const { email, password, name, confirmPassword } = data;
 
-    const passwordhash = await hash(password, env.SALT_HASH)
-    const newDate = { email, password: passwordhash, name, confirmPassword}
+    const passwordhash = await hashPassword(password);
+    const newDate = { email, password: passwordhash, name, confirmPassword };
 
     await this.userRepository.create(newDate);
   }

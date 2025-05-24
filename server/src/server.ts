@@ -5,7 +5,7 @@ import jwtPlugin from "./plugins/jwt";
 import fastifyCookie from "@fastify/cookie";
 import { userControllerRoutes } from "./http/controllers/user/routes";
 
-const app = fastify();
+export const app = fastify();
 app.register(fastifyCors, {
   origin: true,
   methods: ["GET", "POST", "PUT", "DELETE"],

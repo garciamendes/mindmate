@@ -1,21 +1,27 @@
 {
   "name": "mindmate",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "scripts": {
     "dev": "tsx watch --env-file=.env src/server.ts",
     "build": "tsup-node",
     "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:migrate:deploy": "prisma migrate deploy"
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:all": "yarn test:unit && yarn test:integration"
   },
   "devDependencies": {
+    "@ngneat/falso": "^7.3.0",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^22.15.21",
+    "@types/supertest": "^6.0.3",
+    "cross-env": "^7.0.3",
     "prisma": "^6.8.2",
+    "supertest": "^7.1.1",
     "tsup": "^8.5.0",
     "tsx": "^4.19.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
