@@ -10,6 +10,7 @@
     "prisma:migrate:deploy": "prisma migrate deploy"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^22.15.21",
     "prisma": "^6.8.2",
     "tsup": "^8.5.0",

@@ -2,9 +2,8 @@ import "fastify";
 
 declare module "fastify" {
   interface FastifyInstance {
-    auithenticate: any;
+    authenticate: any;
   }
-
   interface FastifyRequest {
     user: string;
   }
